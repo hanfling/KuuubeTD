@@ -40,6 +40,7 @@
 
     | Tablet Model | ROM              | Estimated Max X Pos | Estimated Max Y Pos | Tested Max X Pos | Tested Max Y Pos |
     |--------------|------------------|---------------------|---------------------|------------------|------------------|
+    | GD-0608-R    | Wacom V 2.0      |                     |                     | 20320            | 16240            |
     | UD-0608-R    | Wacom IVe 1.4    | 20480               | 15360               |                  |                  |
     | UD-1212-R    | Wacom IVe 1.4    | 30480               | 30480               |                  |                  |
     | UD-1218-R    | Wacom IVe 1.4    | 45720               | 30480               |                  |                  |

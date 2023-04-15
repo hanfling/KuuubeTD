@@ -2,6 +2,7 @@
 
 | Tablet Model | ROM              | Supported Status    |
 |--------------|------------------|---------------------|
+| GD-0608-R    | Wacom V 2.0      | Experimental        |
 | UD-0608-R    | Wacom IVe 1.4    | Untested            |
 | UD-1212-R    | Wacom IVe 1.4    | Untested            |
 | UD-1218-R    | Wacom IVe 1.4    | Untested            |

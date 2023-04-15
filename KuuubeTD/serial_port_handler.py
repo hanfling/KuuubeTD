@@ -4,6 +4,30 @@ from user_constants import *
 import time
 import parser
 
+def setup_wacom_v_2_0():
+    serial_port = serial.Serial(port = SERIAL_PORT_PATH,
+    baudrate = SERIAL_PORT_INITIAL_BAUD_RATE,
+    bytesize = SERIAL_PORT_BYTESIZE,
+    timeout = SERIAL_PORT_TIMEOUT,
+    stopbits = SERIAL_PORT_STOPBITS,
+    )
+
+    print("Setting up tablet, please wait. Do not put the pen on the tablet.")
+
+    #serial_port.write((WACOM_IVE_1_4_SETTINGS_COMMAND + "\r").encode())
+    #time.sleep(0.2)
+
+    #serial_port.baudrate = SERIAL_PORT_FINAL_BAUD_RATE
+    #time.sleep(0.2)
+    
+    # My tablet did initially not send packages --han
+    serial_port.write(("ST\r").encode())
+    time.sleep(0.2)
+
+    print("Tablet setup finished.")
+
+    return serial_port
+
 def setup_wacom_ive_1_4():
     serial_port = serial.Serial(port = SERIAL_PORT_PATH,
     baudrate = SERIAL_PORT_INITIAL_BAUD_RATE,
@@ -85,6 +109,14 @@ def setup_wacom_ii_s():
     print("Tablet setup finished.")
 
     return serial_port
+
+def read_data_wacom_v_2_0(serial_port):
+    report = bytes(b"")
+    while (len(report) != (SERIAL_PORT_WACOM_V_2_0_REPORT_SIZE)):
+        report = serial_port.read(SERIAL_PORT_WACOM_V_2_0_REPORT_SIZE)
+
+    report_parsed = parser.wacom_v_2_0_parser(report)
+    return report_parsed
 
 def read_data_wacom_ive_1_4(serial_port):
     report = bytes(b"")
